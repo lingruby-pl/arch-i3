@@ -101,7 +101,7 @@ set $ws2 2:2⡇
 set $ws3 3:3⡇
 set $ws4 4:4⡇
 set $ws5 5:5⡇
-set $ws6 6:6⡇
+set $ws6 6:6⡇
 set $ws7 7:7⡇
 set $ws8 8:8⡇
 set $ws9 9:9⡇
@@ -168,12 +168,13 @@ for_window [class="(?i)MEGAsync"] floating enable border normal
 for_window [class="(?i)TeamViewer"] floating enable border normal
 for_window [class="(?i)Claws-Mail"] floating enable border normal
 for_window [class="(?i)vlc"] floating enable border normal
-for_window [class="(?i)glxgears"] floating enable border normal
+for_window [class="(?i)skype"] floating enable border normal
 for_window [class="(?i)redshift-gtk"] floating enable border normal
 for_window [class="(?i)nm-applet"] floating enable border normal
 for_window [class="(?i)Viewnior"] floating enable border normal
 for_window [class="(?i)gimp"] floating enable border normal
 for_window [class="(?i)octopi"] floating enable border normal
+for_window [class="(?i)qtox"] floating enable border normal
 
 #::::::::::::::::::::::::: App assigned in workspace ::::::::::::::::::::::::::# 
 assign [class="vivaldi-snapshot"] $ws0
@@ -340,26 +341,27 @@ focus_follows_mouse  yes
 # startup
 exec_always --no-startup-id /usr/local/bin/i3-monitor.sh
 exec_always --no-startup-id /usr/local/bin/i3-fehbg.sh
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id compton -CGb
 exec --no-startup-id /home/lingruby/.conky/conky/conky_start.sh
+exec --no-startup-id wine start "C:\\Program Files (x86)\\Zegarynka\\Zegarynka.exe"
 exec --no-startup-id numlockx on
 exec --no-startup-id nm-applet
 exec --no-startup-id volumeicon
 exec --no-startup-id octopi-notifier
-# exec --no-startup-id kalu
+exec --no-startup-id gksu sh /usr/local/bin/ifconfig.sh
+exec --no-startup-id megasync
 exec --no-startup-id blueman-applet
 exec --no-startup-id redshift-gtk
 exec --no-startup-id claws-mail
 exec --no-startup-id hexchat --existing
-exec --no-startup-id gksu sh /usr/local/bin/ifconfig.sh
-exec --no-startup-id gajim
+exec --no-startup-id skype
 exec --no-startup-id kadu
+exec --no-startup-id gajim
 # exec --no-startup-id /opt/messengerfordesktop/messengerfordesktop
 exec --no-startup-id shutter --min_at_startup
 exec --no-startup-id franz
-exec --no-startup-id megasync
-exec --no-startup-id wine start "C:\\Program Files (x86)\\Zegarynka\\Zegarynka.exe"
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id qtox
 # exec --no-startup-id xautolock -time 240 -locker blurlock
 
 #:::::::::::::::::::::: Key bindings to programs :::::::::::::::::::::::::::::#

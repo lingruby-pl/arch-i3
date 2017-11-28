@@ -2,4 +2,4 @@
 
 #::::::::::::::::::::::::::: Default settings ::::::::::::::::::::::::::::::::#
 
-![ScreenShot](Zaznaczenie_815.png " i3status")
+![ScreenShot](screenshot.1.png " i3status")

@@ -37,13 +37,13 @@ font pango: xos4 Terminus 9
 floating_modifier $mod
 
 #                       start a terminal
-bindsym $mod+Return workspace $ws2; exec gksu dbus-launch xfce4-terminal
+bindsym $mod+Return workspace $ws2; exec kdesu qterminal
 
 #                       kill focused window
 bindsym $mod+Shift+q kill
 
 #                       start dmenu (a program launcher)
-bindsym $mod+d exec "dmenu_run -nb '#2b2b2b' -nf '#999999' -sb '#2b2b2b' -sf '#5294e2' -fn 'xos4 Terminus-10' -p 'run:'"
+bindsym $mod+d exec "dmenu_run -nb '#2b2b2b' -nf '#999999' -sb '#2b2b2b' -sf '#1b93d1' -fn 'xos4 Terminus-10' -p 'run:'"
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
@@ -149,6 +149,7 @@ bindsym $mod+Shift+10 move container to workspace $ws10; workspace $ws10
 #:::::::::::::::::;: Assigned window mode floating ::::::::::::::::::::::::::::#
 
 # Open specific applications in floating mode
+for_window [class="(?i)arandr"] floating enable border normal
 for_window [class="(?i)alsamixer"] floating enable border normal
 for_window [class="(?i)Mousepad"] floating enable border normal
 for_window [class="(?i)GParted"] floating enable border normal
@@ -181,15 +182,15 @@ for_window [class="(?i)litecoin-qt"] floating enable border normal
 #::::::::::::::::::::::::: App assigned in workspace ::::::::::::::::::::::::::# 
 assign [class="vivaldi-snapshot"] $ws0
 assign [class="TeamSpeak 3 Client"] $ws1
-assign [class="xfce4-terminal"] $ws2
+assign [class="qterminal"] $ws3
 assign [class="xastir"] $ws7
 assign [class="krusader"] $ws4
 assign [class="hexchat"] $ws5
-assign [class="franz"] $ws6
+assign [class="messengerfordesktop"] $ws6
 
 
 # workspace default monitors
-workspace $ws0 output DP1
+workspace $ws0 output HDMI2
 workspace $ws1 output eDP1
 workspace $ws2 output eDP1
 workspace $ws3 output eDP1
@@ -265,7 +266,7 @@ mode "$mode_system" {
 # finds out, if available)
 bar {
     output eDP1
-    output DP1
+    output HDMI2
     status_command i3status --config ~/.config/i3/i3status.conf
     position top
     i3bar_command i3bar -t
@@ -282,10 +283,10 @@ bar {
     statusline #999999
     separator  #999999
 
-    focused_workspace  #00000000 #00000000 #5294e2
-    active_workspace   #00000000 #00000000 #5294e2
-    inactive_workspace #00000000 #00000000 #5294e2
-    urgent_workspace   #5294e2 #5294e2 #ffffff
+    focused_workspace  #00000000 #00000000 #1b93d1
+    active_workspace   #00000000 #00000000 #1b93d1
+    inactive_workspace #00000000 #00000000 #1b93d1
+    urgent_workspace   #1b93d1 #1b93d1 #ffffff
     
   }
 }
@@ -306,14 +307,14 @@ bar {
 #::::::::::::::::::::::::::::: Frame window :::::::::::::::::::::::::::::::::::#
 
 
-set $bg-color            #5294e2
+set $bg-color            #1b93d1
 set $inactive-bg-color   #434749
 set $text-color          #ffffff
 set $inactive-text-color #888888
-set $urgent-bg-color     #5294e2
-set $indicator-color     #5294e2
+set $urgent-bg-color     #1b93d1
+set $indicator-color     #1b93d1
 set $indicator-color-in  #434749
-set $border-color        #5294e2
+set $border-color        #1b93d1
 
 # window colors
 #                       border              background         text                 indicator
@@ -342,7 +343,7 @@ focus_follows_mouse  yes
 
 # startup
 exec_always --no-startup-id /usr/local/bin/i3-monitor.sh
-exec_always --no-startup-id /usr/local/bin/i3-fehbg.sh
+exec_always --no-startup-id /usr/local/bin/i3-nitrogen.sh
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id compton -CGb
 exec --no-startup-id /home/lingruby/.conky/conky/conky_start.sh
@@ -358,7 +359,7 @@ exec --no-startup-id redshift-gtk
 # exec --no-startup-id claws-mail
 exec --no-startup-id hexchat --existing
 exec --no-startup-id skype
-exec --no-startup-id kadu
+# exec --no-startup-id kadu
 exec --no-startup-id gajim
 exec --no-startup-id messengerfordesktop
 # exec --no-startup-id shutter --min_at_startup
@@ -375,10 +376,10 @@ bindsym $mod+t workspace $ws8; exec --no-startup-id pcmanfm
 bindsym $mod+z workspace $ws0; exec --no-startup-id vivaldi-snapshot
 bindsym $mod+x workspace $ws1; exec --no-startup-id /home/lingruby/TeamSpeak3-Client-linux_amd64/ts3client_runscript.sh
 bindsym $mod+c workspace $ws7; exec --no-startup-id xastir
-bindsym $mod+b workspace $ws4; exec --no-startup-id gksu dbus-launch /usr/bin/krusader
+bindsym $mod+b workspace $ws4; exec --no-startup-id kdesu /usr/bin/krusader
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 bindsym $mod+n exec --no-startup-id gksu sh /usr/local/bin/ifconfig.sh
-bindsym $mod+Shift+z workspace $ws3; exec --no-startup-id xfce4-terminal
+bindsym $mod+Shift+z workspace $ws3; exec --no-startup-id qterminal
 
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"

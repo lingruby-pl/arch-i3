@@ -274,7 +274,7 @@ bar {
     tray_output eDP1
         bindsym button4 nop
         bindsym button5 nop
-        font pango: xos4 Terminus,Icons 9
+        font pango: xos4 Terminus,FontAwesome 9
         strip_workspace_numbers yes
         separator_symbol 	"⡇"
 
@@ -346,13 +346,13 @@ exec_always --no-startup-id /usr/local/bin/i3-monitor.sh
 exec_always --no-startup-id /usr/local/bin/i3-nitrogen.sh
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id compton -CGb
-exec --no-startup-id /home/lingruby/.conky/conky/conky_start.sh
+exec --no-startup-id /usr/local/bin/conky_start.sh
 exec --no-startup-id wine start "C:\\Program Files (x86)\\Zegarynka\\Zegarynka.exe"
 exec --no-startup-id numlockx on
 exec --no-startup-id nm-applet
 exec --no-startup-id volumeicon
 exec --no-startup-id octopi-notifier
-exec --no-startup-id gksu sh /usr/local/bin/ifconfig.sh
+exec --no-startup-id kdesu sh /usr/local/bin/ifconfig.sh
 exec --no-startup-id megasync
 exec --no-startup-id blueman-applet
 exec --no-startup-id redshift-gtk
@@ -378,7 +378,7 @@ bindsym $mod+x workspace $ws1; exec --no-startup-id /home/lingruby/TeamSpeak3-Cl
 bindsym $mod+c workspace $ws7; exec --no-startup-id xastir
 bindsym $mod+b workspace $ws4; exec --no-startup-id kdesu /usr/bin/krusader
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
-bindsym $mod+n exec --no-startup-id gksu sh /usr/local/bin/ifconfig.sh
+bindsym $mod+n exec --no-startup-id kdesu sh /usr/local/bin/ifconfig.sh
 bindsym $mod+Shift+z workspace $ws3; exec --no-startup-id qterminal
 
 # Screen brightness controls

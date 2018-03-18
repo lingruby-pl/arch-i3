@@ -2,4 +2,4 @@
 
 #::::::::::::::::::::::::::: Default settings ::::::::::::::::::::::::::::::::#
 
-![ScreenShot](screenshot.10.png " i3status")
+![ScreenShot](screenshot.15.png " i3status")

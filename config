@@ -37,7 +37,7 @@ font pango: xos4 Terminus 9
 floating_modifier $mod
 
 #                       start a terminal
-bindsym $mod+Return workspace $ws2; exec kdesu qterminal
+bindsym $mod+Return workspace $ws2; exec gksu tilda
 
 #                       kill focused window
 bindsym $mod+Shift+q kill
@@ -178,11 +178,12 @@ for_window [class="(?i)gimp"] floating enable border normal
 for_window [class="(?i)octopi"] floating enable border normal
 for_window [class="(?i)qtox"] floating enable border normal
 for_window [class="(?i)litecoin-qt"] floating enable border normal
+for_window [class="(?i)epdfview"] floating enable border normal
 
 #::::::::::::::::::::::::: App assigned in workspace ::::::::::::::::::::::::::# 
 assign [class="vivaldi-snapshot"] $ws0
 assign [class="TeamSpeak 3 Client"] $ws1
-assign [class="qterminal"] $ws3
+assign [class="tilda"] $ws3
 assign [class="xastir"] $ws7
 assign [class="krusader"] $ws4
 assign [class="hexchat"] $ws5
@@ -379,7 +380,7 @@ bindsym $mod+c workspace $ws7; exec --no-startup-id xastir
 bindsym $mod+b workspace $ws4; exec --no-startup-id kdesu /usr/bin/krusader
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 bindsym $mod+n exec --no-startup-id kdesu sh /usr/local/bin/ifconfig.sh
-bindsym $mod+Shift+z workspace $ws3; exec --no-startup-id qterminal
+bindsym $mod+Shift+z workspace $ws3; exec --no-startup-id tilda
 
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
